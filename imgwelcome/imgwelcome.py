@@ -41,7 +41,7 @@ class ImgWelcome(M.Cog):
 	def __init__(C,bot):C.bot=bot;C.config=W.get_conf(C,2751203330,force_registration=A);C.datapath=B(X(raw_name='ImgWelcome'));C.imgpath=B(Y(C));D={'ANNOUNCE':H,'ACCOUNT_WARNINGS':A,A7:f"{C.imgpath}/transparent.png",A8:[255,255,255,230],'CHANNEL':E,A9:[128,128],Z:f"{C.imgpath}/fonts/UniSansHeavy.otf",a:30,b:22,c:18,d:12,AA:[0,0,0,255],e:f"{C.imgpath}/fonts/UniSansHeavy.otf",f:20,AB:[255,255,255,230],'SPECIAL_USERS':A,p:[255,255,255,230],AC:E,g:f"{C.imgpath}/fonts/UniSansHeavy.otf",h:50};C.config.register_guild(**D);C.session=T.ClientSession();C.version='0.3.2'
 	def cog_unload(A):A.bot.loop.create_task(A.session.close())
 	async def _create_welcome(O,member,test_member_number:I=E):
-		AR='of ';AQ='Welcome';q=test_member_number;K=member;C=await O.config.guild(K.guild).all();AD=C[g];AE=C[h];AF=C[e];AG=C[f];T=C[Z];AH=C[a];AI=C[b];AJ=C[c];AK=C[d];r=G.truetype(AD,AE);U=G.truetype(AF,AG);s=G.truetype(T,AH);t=G.truetype(T,AI);u=G.truetype(T,AJ);v=G.truetype(T,AK);w=F.open(C[A7]).convert(S);AL=F.open(O.imgpath+'/noimage.png');L=F.new(S,(500,150));L=n.fit(w,(500,150),centering=(0.5,0.5));L.paste(w);L=L.resize((500,150),F.NEAREST);V=F.new('L',(512,512),0);AM=R.Draw(V);AM.ellipse(((0,0),(512,512)),fill=255);i=J(C[A9]);V=V.resize(i,F.ANTIALIAS)
+		AR='to ';AQ='Welcome';q=test_member_number;K=member;C=await O.config.guild(K.guild).all();AD=C[g];AE=C[h];AF=C[e];AG=C[f];T=C[Z];AH=C[a];AI=C[b];AJ=C[c];AK=C[d];r=G.truetype(AD,AE);U=G.truetype(AF,AG);s=G.truetype(T,AH);t=G.truetype(T,AI);u=G.truetype(T,AJ);v=G.truetype(T,AK);w=F.open(C[A7]).convert(S);AL=F.open(O.imgpath+'/noimage.png');L=F.new(S,(500,150));L=n.fit(w,(500,150),centering=(0.5,0.5));L.paste(w);L=L.resize((500,150),F.NEAREST);V=F.new('L',(512,512),0);AM=R.Draw(V);AM.ellipse(((0,0),(512,512)),fill=255);i=J(C[A9]);V=V.resize(i,F.ANTIALIAS)
 		try:P=m();await K.avatar_url.save(P,seek_begin=A);P=F.open(P).convert(S)
 		except A4 as AS:o.error('ImgWelcome error in create_welcome:\n',exc_info=A);P=AL
 		j=n.fit(P,i,centering=(0,0));j.putalpha(V);k=J(C[A8]);W=J(C[p]);x=J(C[AB])
@@ -62,7 +62,7 @@ class ImgWelcome(M.Cog):
 				try:Q=A6(K.guild.members,key=lambda m:m.joined_at).index(K)+1
 				except A5:Q=K.guild.member_count+1
 		else:Q=I(q)
-		A2=B(Q)+O._get_suffix(Q);A3=B(K.guild.name)+'!'if D(B(K.guild.name))<=28 else B(K.guild.name)[:23]+'...';N((152,96),f"You are the {B(A2)} member",1,U,M);H.text((152,96),f"You are the {B(A2)} member",font=U,fill=x);N((152,116),AR+A3,1,U,M);H.text((152,116),AR+A3,font=U,fill=x);l=m();L.save(l,format='PNG');l.seek(0);return l
+		A2=B(Q)+O._get_suffix(Q);A3=B(K.guild.name)+'!'if D(B(K.guild.name))<=28 else B(K.guild.name)[:23]+'...';N((152,109),AR+A3,1,U,M);H.text((152,109),AR+A3,font=U,fill=x);l=m();L.save(l,format='PNG');l.seek(0);return l
 	async def _circle_border(C,circle_img_size:J):
 		A=circle_img_size;B=[]
 		for E in range(D(A)):B.append(A[0]+8)
